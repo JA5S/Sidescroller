@@ -1,0 +1,51 @@
+//Current Streak: Months 1, Days 38
+
+//Features
+1. Set up Level (Lvl 2)
+2. End of level (level transition)
+3. Level camera right bounds???
+4. Set up respawn/start system
+5. Improve respawn (subroutine??)
+6. UI for level transition
+7. Add player bounds (same as Camera)
+8. Get camera bounds from player???
+9. Tutorial UX (improve?)
+10. Pause Menu (add options)
+11. Improve TextUI reference
+12. Improve death (gravity? setActive?)
+13. Improve enemy movement
+14. Death by enemy (Improve)
+15. ?????
+16. Checkpoint indication for player
+17. Fix jittery camera follow/movement!!
+18. Improve jump
+19. Fix jump gravity adjust (ensure proper increase even on holding down jump button)
+20. Improve dash
+21. Adjust input for dash/jump (up key?)
+22. Moving platform (update graphic, etc...?)
+23. Start screen (add background, etc..)
+24. Improve play button
+25. Fall killbox (Improve)
+26. Health/lives upon Dmg?? 
+27. ????
+
+//Code Abstraction
+1. ???
+2. Movement script
+3. Input script?
+4. ????
+
+
+//Graphics
+1. Improve ground sprite
+2. Background sprite
+3. Player sprite animations
+4. Improve Player sprite
+5. Player animations
+6. Final draft collectable sprite
+7. Checkpoint sprite
+8. Platform sprite
+9. ????
+
+//Devlog
+1. Start a devlog??
