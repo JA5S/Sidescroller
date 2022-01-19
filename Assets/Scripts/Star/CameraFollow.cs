@@ -24,12 +24,23 @@ public class CameraFollow : MonoBehaviour
     {
         if (!cameraMoveTowards)
         {
-            if(Camera.main.transform.position.x > cameraLeftBounds || player.transform.position.x + offset.x >= cameraLeftBounds)
-                transform.position = new Vector3(player.transform.position.x + offset.x, offset.y, offset.z);
+            //if(transform.position.x > cameraLeftBounds)
+            {
+                if(player.transform.position.x + offset.x >= cameraLeftBounds)
+                {
+                    transform.position = new Vector3(player.transform.position.x + offset.x, offset.y, offset.z);
+                }
+                else if(transform.position.x > cameraLeftBounds)
+                {
+                    transform.position = new Vector3(cameraLeftBounds, offset.y, offset.z);
+                }  
+            }
+                
         }
         if (cameraMoveTowards)
         {
-            transform.position = Vector3.MoveTowards(Camera.main.transform.position, player.transform.position + altOffset, speed * Time.deltaTime);
+            if (Camera.main.transform.position.x > cameraLeftBounds || player.transform.position.x + offset.x >= cameraLeftBounds)
+                transform.position = Vector3.MoveTowards(Camera.main.transform.position, player.transform.position + altOffset, speed * Time.deltaTime);
         }
     }
 
@@ -41,5 +52,10 @@ public class CameraFollow : MonoBehaviour
     public Vector3 getAltOffset()
     {
         return altOffset;
+    }
+
+    public float getCamLeftBounds()
+    {
+        return cameraLeftBounds;
     }
 }

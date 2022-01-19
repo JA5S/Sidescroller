@@ -211,8 +211,7 @@ public class PlayerController2D : MonoBehaviour
 
     IEnumerator enableMovement()
     {
-        if(Camera.main.transform.position == (transform.position + cameraFollow.getAltOffset()) ||
-            Camera.main.transform.position.x == (transform.position.x + cameraFollow.getOffset().x))
+        if(camPosCheck())
         {
             Debug.Log("Camera reset to player's position.");
             canMove = true;
@@ -220,5 +219,17 @@ public class PlayerController2D : MonoBehaviour
             StopCoroutine("enableMovement");
         }
         yield return new WaitForSeconds(0.2f);
+    }
+
+    private bool camPosCheck()
+    {
+        if(Camera.main.transform.position == (transform.position + cameraFollow.getAltOffset()) ||
+            Camera.main.transform.position.x == (transform.position.x + cameraFollow.getOffset().x) ||
+            Camera.main.transform.position.x <= cameraFollow.getCamLeftBounds())
+        {
+            return true;
+        }
+
+        return false;
     }
 }
