@@ -28,7 +28,15 @@ public class GameManager : MonoBehaviour
         if (player.getCollectCnt() == collectablesToWin)
         {
             Debug.Log("Player finished level!");
-            SceneManager.LoadScene(nextLevelIndex);
+            if(nextLevelIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                SceneManager.LoadScene(nextLevelIndex);
+            }
+            else
+            {
+                Debug.LogError("No more levels available!");
+                //Load Start scene instead
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

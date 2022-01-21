@@ -1,4 +1,5 @@
-//Current Streak: Months 1, Days 40
+//Current Streak: Months 1, Days 41
+//Missing Days: 1
 
 //Features
 1. Set up Level (Lvl 2)
@@ -22,7 +23,7 @@
 19. Fix jump gravity adjust (ensure proper increase even on holding down jump button)
 20. Improve dash
 21. Adjust input for dash/jump (up key?)
-22. Moving platform (update graphic, etc...?)
+22. Moving platform (update graphic, Fix super jump from on platform, etc...?)
 23. Start screen (add background, etc..)
 24. Improve play button
 25. Fall killbox (Improve)
@@ -30,6 +31,7 @@
 27. Refactor
 28. Set camera follow speed based on distance
 29. Ensure that game does not attempt to load non-existent level!!!
+31. Have Game Manager load start menu upon not having another level to load?
 30. ????
 
 //Code Abstraction
