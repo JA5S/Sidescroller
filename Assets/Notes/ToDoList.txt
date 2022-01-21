@@ -1,4 +1,4 @@
-//Current Streak: Months 1, Days 39
+//Current Streak: Months 1, Days 40
 
 //Features
 1. Set up Level (Lvl 2)
@@ -15,7 +15,7 @@
 12. Improve death (gravity? setActive?)
 13. Improve enemy movement
 14. Death by enemy (Improve)
-15. Prefabs
+15. Prefab player and enemies
 16. Checkpoint indication for player
 17. Fix jittery camera follow/movement!!
 18. Improve jump
