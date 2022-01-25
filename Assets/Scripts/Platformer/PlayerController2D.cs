@@ -113,9 +113,9 @@ public class PlayerController2D : MonoBehaviour
         jumpInput = Input.GetAxisRaw("Vertical");
         if (onGround && jumpInput > 0)
         {
+            startHeight = transform.position.y;
             rBody.AddForce(Vector2.up * jumpInput * jumpFrc * Time.fixedDeltaTime, ForceMode2D.Impulse);
             onGround = false;
-            startHeight = transform.position.y;
             isJumping = true;
         }
         if(transform.position.y >= (startHeight + 2.1f) && isJumping && !isFalling)
@@ -123,7 +123,7 @@ public class PlayerController2D : MonoBehaviour
             isFalling = true;
             rBody.gravityScale *= 2;
         }
-        if (transform.position.y <= startHeight && isFalling)
+        if (onGround)
         {
             resetGravity();
             isJumping = false;

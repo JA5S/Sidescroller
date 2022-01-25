@@ -1,4 +1,4 @@
-//Current Streak: Months 1, Days 41
+//Current Streak: Months 1, Days 44
 //Missing Days: 1
 
 //Features
@@ -11,7 +11,7 @@
 7. Add player bounds (same as Camera)
 8. Get camera bounds from player???
 9. Tutorial UX (improve?)
-10. Pause Menu (add options)
+10. Pause Menu (add settings options)
 11. Improve TextUI reference
 12. Improve death (gravity? setActive?)
 13. Improve enemy movement
@@ -20,19 +20,19 @@
 16. Checkpoint indication for player
 17. Fix jittery camera follow/movement!!
 18. Improve jump
-19. Fix jump gravity adjust (ensure proper increase even on holding down jump button)
+19. Fix jump gravity adjust? (No perm grav increase if holding down jump)
 20. Improve dash
 21. Adjust input for dash/jump (up key?)
-22. Moving platform (update graphic, Fix super jump from on platform, etc...?)
+22. Moving platform (Fix super jump from on platform!!)
 23. Start screen (add background, etc..)
-24. Improve play button
+24. Improve play button/Start Menu (settings, etc..)
 25. Fall killbox (Improve)
 26. Health/lives upon Dmg??
 27. Refactor
 28. Set camera follow speed based on distance
-29. Ensure that game does not attempt to load non-existent level!!!
+29. ????
 31. Have Game Manager load start menu upon not having another level to load?
-30. ????
+30. ?????
 
 //Code Abstraction
 1. ???
@@ -49,7 +49,7 @@
 5. Player animations
 6. Final draft collectable sprite
 7. Checkpoint sprite
-8. Platform sprite
+8. Platform sprite, improve
 9. ????
 
 //Devlog

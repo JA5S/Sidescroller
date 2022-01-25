@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject player; //change to reference prefab?
     [SerializeField] private Vector3 offset = new Vector3(3, 0, -10);
     [SerializeField] private Vector3 altOffset = new Vector3(0, -5, -10);
     [SerializeField] private float cameraLeftBounds = 1.25f;
