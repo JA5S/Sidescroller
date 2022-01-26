@@ -1,4 +1,4 @@
-//Current Streak: Months 1, Days 44
+//Current Streak: Months 1, Days 45
 //Missing Days: 1
 
 //Features
@@ -30,7 +30,7 @@
 26. Health/lives upon Dmg??
 27. Refactor
 28. Set camera follow speed based on distance
-29. ????
+29. Adjust camera so leads a little to the faced direction?
 31. Have Game Manager load start menu upon not having another level to load?
 30. ?????
 

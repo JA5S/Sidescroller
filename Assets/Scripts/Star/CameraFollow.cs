@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player; //change to reference prefab?
+    public PlayerController2D player; //change to reference prefab?
     [SerializeField] private Vector3 offset = new Vector3(3, 0, -10);
     [SerializeField] private Vector3 altOffset = new Vector3(0, -5, -10);
     [SerializeField] private float cameraLeftBounds = 1.25f;
@@ -37,6 +37,7 @@ public class CameraFollow : MonoBehaviour
             }
                 
         }
+        //Future Change: use player.getDir() to change offset direction and move smoothly to lead on that direction
         if (cameraMoveTowards)
         {
             if (Camera.main.transform.position.x > cameraLeftBounds || player.transform.position.x + offset.x >= cameraLeftBounds)

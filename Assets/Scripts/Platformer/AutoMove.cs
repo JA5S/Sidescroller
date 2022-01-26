@@ -10,11 +10,15 @@ public class AutoMove : MonoBehaviour
     [SerializeField] private float leftBounds = -2;
     [SerializeField] private float rightBounds = 2;
     [SerializeField] private float centerX = 3;
+    [SerializeField] private bool startMovingLeft = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!startMovingLeft)
+        {
+            dir *= -1;
+        }
     }
 
     // Update is called once per frame

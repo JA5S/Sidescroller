@@ -108,6 +108,11 @@ public class PlayerController2D : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
+    public float getDir()
+    {
+        return direction.x;
+    }
+
     private void Jump()
     {
         jumpInput = Input.GetAxisRaw("Vertical");

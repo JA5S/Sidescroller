@@ -1225,6 +1225,7 @@ MonoBehaviour:
   leftBounds: -2
   rightBounds: 2
   centerX: 6
+  startMovingLeft: 1
 --- !u!61 &672168790
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1425,12 +1426,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791130173}
   m_CullTransparentMesh: 0
---- !u!1 &811238760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 153656662666989433, guid: 147e17021073a3549ba6b53726ae758f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1598366994}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &892411998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a59abc2c0b3a2449d904b3c3b20905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 811238760}
+  player: {fileID: 1598366995}
   offset: {x: 2, y: 0, z: -10}
   altOffset: {x: 2, y: 3.5, z: -10}
   cameraLeftBounds: 1.25
@@ -2000,6 +1995,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147e17021073a3549ba6b53726ae758f, type: 3}
+--- !u!114 &1598366995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 153656662666989439, guid: 147e17021073a3549ba6b53726ae758f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1598366994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b074b26be760674dbf81b6e193d11d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680422172
 GameObject:
   m_ObjectHideFlags: 0
@@ -5083,6 +5090,7 @@ MonoBehaviour:
   leftBounds: -3
   rightBounds: 2
   centerX: 30
+  startMovingLeft: 1
 --- !u!212 &1764520922
 SpriteRenderer:
   m_ObjectHideFlags: 0
