@@ -10,25 +10,28 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int collectablesToWin = 3;
     private PlayerController2D player;
-
+    private GameObject pauseMenuParent;
+    private GameObject pauseMenu;
     private int nextLevelIndex;
-
-    private bool isPaused = false;
-    //change to private or reference???
-    public GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController2D>();
+
         nextLevelIndex = SceneManager.GetActiveScene().buildIndex;
         nextLevelIndex++;
+
+        pauseMenuParent = GameObject.Find("PauseMenu");
+        if(pauseMenuParent.transform.childCount >= 1)
+            pauseMenu = pauseMenuParent.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.getCollectCnt() == collectablesToWin)
+        //Loading next level upon win condition
+        if (SceneManager.GetActiveScene().buildIndex != 0 && player.getCollectCnt() == collectablesToWin)
         {
             Debug.Log("Player finished level!");
             if(nextLevelIndex < SceneManager.sceneCountInBuildSettings)
@@ -38,33 +41,44 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.LogError("No more levels available!");
-                //Load Start scene instead
+                //Load Start scene instead?
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        //Pause Input
+        if (SceneManager.GetActiveScene().buildIndex != 0 && Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            //Change to Lamba/Ternary?
+            if(!pauseMenu.activeSelf)
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+            }
+        }
+
+        //Stop time scale if pause menu is active
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
         }
     }
 
     public void StartGame()
     {
-        SceneManager.LoadScene(nextLevelIndex); //refactor to instead load specific scene (Level_1)
+        SceneManager.LoadScene(nextLevelIndex); //refactor to instead load specific scene (Level_1)?
     }
 
     private void PauseGame()
     {
-        Time.timeScale = 0;
-        isPaused = true;
-        pauseMenu.SetActive(isPaused);
+        pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1;
-        isPaused = false;
-        pauseMenu.SetActive(isPaused);
+        pauseMenu.SetActive(false);
     }
 
     public void LoadMainMenu()
