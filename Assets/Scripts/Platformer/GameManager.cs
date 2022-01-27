@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameManager : MonoBehaviour
 {
@@ -64,9 +67,18 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(isPaused);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void QuitGame()
     {
+#if UNITY_EDITOR
         Debug.Log("Quit Game");
+        EditorApplication.ExitPlaymode();
+#else
         Application.Quit();
+#endif
     }
 }
