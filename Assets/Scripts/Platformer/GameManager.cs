@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         //Pause Input
         if (SceneManager.GetActiveScene().buildIndex != 0 && Input.GetKeyDown(KeyCode.Escape))
         {
-            //Change to Lamba/Ternary?
+            //Change to Lambda/Ternary?
             if(!pauseMenu.activeSelf)
             {
                 PauseGame();

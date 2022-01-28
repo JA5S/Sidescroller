@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoMove : MonoBehaviour
+public class AutoMove : MonoBehaviour, IMove
 {
     //Variable declarations
     private float dir = 1;

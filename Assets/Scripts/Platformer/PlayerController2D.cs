@@ -6,11 +6,8 @@ using TMPro;
 public class PlayerController2D : MonoBehaviour
 {
     //Variable Declarations
+    private PlayerMovement2D playerMovement;
     [SerializeField] private float moveSpd = 5f;
-    private float xInput;
-    private float rotSpeed = 180f;
-    private Vector3 direction;
-    [SerializeField]private bool isFacingRight = true;
     private bool canMove = true;
 
     [SerializeField] private float jumpFrc = 350f;
@@ -37,16 +34,17 @@ public class PlayerController2D : MonoBehaviour
     private CameraFollow cameraFollow;
     private bool checkCamPos;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        playerMovement = GetComponent<PlayerMovement2D>();
         rBody = GetComponent<Rigidbody2D>();
         cameraFollow = Camera.main.GetComponent<CameraFollow>();
 
         //Find a safer way to do this??
         clctText = GameObject.Find("CounterText").GetComponent<TextMeshProUGUI>();
-
-        direction = Vector3.right;
 
         numDashes = maxDashes;
     }
@@ -55,14 +53,14 @@ public class PlayerController2D : MonoBehaviour
     void Update()
     {
         //Horizontal Movement
-        if(canMove)
-            Move();
-
-        //Debug.Log(collectCnt.ToString("D3"));
-        clctText.text = collectCnt.ToString("D3");
+        if (canMove)
+            playerMovement.Move(moveSpd);
 
         if (checkCamPos)
             StartCoroutine(enableMovement());
+
+        //Update UI for Collection Score
+        clctText.text = collectCnt.ToString("D3");
     }
 
     // Physics update once per fixed frame
@@ -80,37 +78,15 @@ public class PlayerController2D : MonoBehaviour
             stopDash();
     }
 
-    private void Move()
-    {
-        xInput = Input.GetAxis("Horizontal");
-        transform.Translate(direction * xInput * moveSpd * Time.deltaTime);
-
-        if (xInput < 0 && isFacingRight)
-        {
-            Flip();
-        }
-
-        if (xInput > 0 && !isFacingRight)
-        {
-            Flip();
-        }
-    }
-
     public void MoveWithPlatform(AutoMove platform)
     {
-        transform.Translate(-direction * platform.getMoveSpeed() * platform.getDirection() * Time.deltaTime);
+        playerMovement.MoveWith(platform);
     }
 
-    private void Flip()
-    {
-        transform.Rotate(Vector3.up * rotSpeed);
-        direction *= -1;
-        isFacingRight = !isFacingRight;
-    }
-
+    //Getter Function
     public float getDir()
     {
-        return direction.x;
+        return playerMovement.getDirection();
     }
 
     private void Jump()
@@ -142,7 +118,7 @@ public class PlayerController2D : MonoBehaviour
         isDashing = true;
         startTime = Time.time;
         numDashes -= 1;
-        rBody.AddForce(direction * dashFrc * Time.fixedDeltaTime, ForceMode2D.Impulse);
+        rBody.AddForce(Vector3.right * getDir() * dashFrc * Time.fixedDeltaTime, ForceMode2D.Impulse);
     }
 
     private void stopDash()
@@ -168,6 +144,7 @@ public class PlayerController2D : MonoBehaviour
         Debug.Log("Collectable destroyed!");
     }
 
+    //Getter Function
     public int getCollectCnt()
     {
         return collectCnt;
@@ -181,11 +158,13 @@ public class PlayerController2D : MonoBehaviour
         //rBody.isKinematic = true; //turn off gravity?
     }
 
+    //Getter Function
     public Vector3 getSpawnPos()
     {
         return spawnPos;
     }
 
+    //Setter Functions
     public void setSpawnPos(Vector3 newSpawnPos)
     {
         spawnPos = newSpawnPos;

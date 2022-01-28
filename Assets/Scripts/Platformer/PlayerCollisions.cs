@@ -10,7 +10,7 @@ public class PlayerCollisions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pc = gameObject.GetComponent<PlayerController2D>();
+        pc = GetComponent<PlayerController2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

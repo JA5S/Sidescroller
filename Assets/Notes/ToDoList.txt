@@ -1,4 +1,4 @@
-//Current Streak: Months 1, Days 46
+//Current Streak: Months 1, Days 47
 //Missing Days: 1
 
 //Features
@@ -36,7 +36,7 @@
 
 //Code Abstraction
 1. ???
-2. Movement script
+2. (Finish) Movement script 
 3. Input script
 4. ????
 
